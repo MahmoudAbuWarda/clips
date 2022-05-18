@@ -1,0 +1,56 @@
+ <!-- Header -->
+ <header id="header" class="bg-secondary">
+    <nav class="container mx-auto flex justify-start items-center py-8 px-4">
+      <!-- App Name -->
+      <a class="text-3xl text-indigo-400 font-bold uppercase mr-4" routerLink="/" >Clipz</a>
+
+      <div class="flex flex-grow items-center">
+        <!-- Primary Navigation -->
+        <ul class="flex flex-row mt-1">
+          <!-- Navigation Links -->
+          <li *ngIf="!(auth.isAuthinticated$|async); else athLinks">
+            <a class="px-6 hover:bg-indigo-500 rounded-md mx-4 hover:font-semibold hover:text-lg" href="#" (click)="openModal($event)">Login / Register</a>
+          </li>
+          <ng-template #athLinks>
+             <li>
+                 <a class="px-6 hover:bg-indigo-500 rounded-md mx-4 hover:font-semibold hover:text-lg" routerLink="/manage"
+                 routerLinkActive="bg-indigo-400 rounded-md" 
+                 [queryParams]="{sort:'1'}"
+                 >Manage</a>
+             </li>
+            <li >
+                <a class="px-6 hover:bg-indigo-500 rounded-md mx-4 hover:font-semibold hover:text-lg" routerLink="/upload"
+                routerLinkActive="bg-indigo-400 rounded-md" [routerLinkActiveOptions]="{exact:true}"
+                >Upload</a>
+             </li>
+             <li >
+              <a class="px-6 hover:bg-red-500 rounded-md mx-4 hover:font-semibold hover:text-lg" href="#" (click)="auth.logout($event)">Logout</a>
+           </li>
+          </ng-template>
+         
+          <li>
+            <a class="px-6 hover:bg-indigo-500 rounded-md mx-4 hover:font-semibold hover:text-lg" routerLink="/about"  
+             routerLinkActive="bg-indigo-400 rounded-md" [routerLinkActiveOptions]="{exact:true}"
+            >About</a>
+          </li>
+        </ul>
+        <!-- Language Switcher -->
+        <!-- <ul class="flex flex-row ml-auto">
+          <li>
+            <a href="#">
+              <img src="data:image/png;base64,iVBORw0KGYNJVjf2W6yZ2obmh8Vn3aKxe2ZnYmTphg40AAAA/FBMVEWyIjNPN2Y8O27///8/PnBOTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH+PXBJSHhTUn9hYYqyIjReXohgX4lYV4Lr6/C2tcjPdYB0c5haWYRYV4Nra5GJiac+PW/FxdTHYG1RUH3eoajltbtOTXvty89BQHHg3+hSUX6GYoC6usyVlbFycZa7u8yUk6+sq8FCQXO0t1MrxfTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH+2jo7ukpLvw8PTx8fX09Pf1GYARDuAM2zSiYYpXLhf9vCPVSTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH//y8DFvaMSTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH/ygsg/nwRAy15rxQ4Ywh3JQX49hVgKA/AYqLVR2jqojevDBgbFFiKiamWQXsLHZtR4B7kF7AUy4T51vdgiMkNE1VDnMy7S8/ZQ7ZQlJ2d+bEFqp6zhuh9Cf9/pDt1MrxfTEGEZioK7qjcDd48KVC5BMk7ccH8B+Ap2Pf2UMI5UBBX18/Ut7ZQ84Jui10QKsbcA7dt77jxIBDt+sxMNzrD4HL+rMWCnxwDxHyCapmgYTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH0d5B5sGHAA1+QTwRQJgX2Q/7+w9GZGlDZKERpoxgkbDc8s0WscGSo+WGYARDuAM2zSiYYpXLhf9vCPVSTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eHphg" 
+                alt="en" width="22" height="14" class="inline-block">
+              <span class="ml-1">English</span>
+            </a>
+          </li>
+          <li style="display: none;">
+            <a href="#">
+              <img src="data:image/png;base64,iVBORw0KGYARDuAM2zSiYYpXLhf9vCPVSTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH/tKTkAI5Wrt9z////5t7ztKTlzpJCAAAAABXRSTlP++vjs1GYARDuAM2zSiYYpXLhf9vCPVSTYR2HupL1SyUXqGcpzeDy9N11HMAHex5eH" 
+                alt="fr" width="22" height="14" class="inline-block">
+                <span class="ml-1">French</span>
+            </a>
+          </li>
+        </ul> -->
+      </div>
+    </nav>
+  </header>
